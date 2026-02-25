@@ -1,286 +1,122 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>SIGNO – Learn & Translate Sign Language</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
 
 <style>
-:root{
-  --accent:#7c3aed;
-  --dark:#0f172a;
-  --light:#f8fafc;
-  --text:#0f172a;
-  --sub:#64748b;
-}
-
-*{margin:0;padding:0;box-sizing:border-box;}
-
 body{
-  font-family:'Inter',sans-serif;
-  background:linear-gradient(180deg,#f8fafc 0%,#eef2ff 100%);
-  color:var(--text);
-  overflow-x:hidden;
+    margin:0;
+    font-family:'Inter',sans-serif;
+    background:#ffffff;
+    color:#111;
+    overflow-x:hidden;
 }
 
-/* Animated soft background glow */
-body::before{
-  content:"";
-  position:fixed;
-  width:600px;
-  height:600px;
-  background:radial-gradient(circle,var(--accent),transparent 70%);
-  top:-200px;
-  right:-200px;
-  opacity:0.15;
-  z-index:-1;
-  animation:move 10s infinite alternate ease-in-out;
+section{
+    padding:140px 8%;
+    text-align:center;
 }
 
-@keyframes move{
-  0%{transform:translateY(0px);}
-  100%{transform:translateY(40px);}
-}
-
-/* NAV */
-nav{
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  padding:24px 8%;
-  background:white;
-  backdrop-filter:blur(10px);
-  border-bottom:1px solid #eee;
-}
-
-.logo{
-  display:flex;
-  align-items:center;
-  gap:10px;
-}
-
-.logo img{
-  width:36px;
-  border-radius:10px;
-  box-shadow:0 10px 25px rgba(124,58,237,0.25);
-}
-
-nav a{
-  text-decoration:none;
-  color:var(--sub);
-  margin-left:24px;
-  font-size:14px;
-  transition:.3s;
-}
-
-nav a:hover{color:var(--text);}
-
-/* HERO */
 .hero{
-  text-align:center;
-  padding:140px 20px 100px;
-  max-width:900px;
-  margin:auto;
-}
-
-.hero img{
-  width:120px;
-  border-radius:28px;
-  box-shadow:0 30px 70px rgba(124,58,237,0.35);
-  margin-bottom:30px;
-  animation:float 4s ease-in-out infinite;
-}
-
-@keyframes float{
-  0%,100%{transform:translateY(0);}
-  50%{transform:translateY(-12px);}
+    padding-top:180px;
 }
 
 .hero h1{
-  font-size:56px;
-  font-weight:600;
-  margin-bottom:20px;
+    font-size:64px;
+    font-weight:700;
+    line-height:1.1;
 }
 
-.hero p{
-  font-size:18px;
-  color:var(--sub);
-  max-width:650px;
-  margin:auto;
+.sub{
+    color:#666;
+    font-size:20px;
+    margin-top:20px;
 }
 
-/* SECTION */
-.section{
-  padding:120px 8%;
-  max-width:1200px;
-  margin:auto;
+.image-section img{
+    width:420px;
+    max-width:100%;
+    margin-top:60px;
+    filter: drop-shadow(0 40px 60px rgba(0,0,0,0.15));
+    transition: transform .6s ease;
 }
 
-.section-title{
-  text-align:center;
-  font-size:34px;
-  font-weight:600;
-  margin-bottom:80px;
+.image-section img:hover{
+    transform: scale(1.03);
 }
 
-/* Feature */
-.feature{
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  margin-bottom:140px;
-  gap:80px;
-  flex-wrap:wrap;
+h2{
+    font-size:56px;
+    font-weight:700;
+    margin-bottom:20px;
 }
 
-.feature-text{
-  flex:1;
-  min-width:280px;
+footer{
+    padding:80px 8%;
+    border-top:1px solid #eee;
+    text-align:center;
+    color:#777;
 }
-
-.feature-text h3{
-  font-size:28px;
-  margin-bottom:16px;
-}
-
-.feature-text p{
-  color:var(--sub);
-  line-height:1.7;
-}
-
-/* Glass phone mockup */
-.mockup{
-  flex:1;
-  min-width:280px;
-  display:flex;
-  justify-content:center;
-}
-
-.phone{
-  width:260px;
-  height:520px;
-  background:rgba(255,255,255,0.6);
-  backdrop-filter:blur(20px);
-  border-radius:40px;
-  padding:16px;
-  box-shadow:0 40px 80px rgba(0,0,0,0.15);
-}
-
-.screen{
-  width:100%;
-  height:100%;
-  border-radius:30px;
-  background:linear-gradient(135deg,#ddd6fe,#a78bfa);
-}
-
-/* TRUST */
-.trust{
-  background:white;
-  padding:120px 20px;
-  text-align:center;
-  border-top:1px solid #eee;
-}
-
-.trust h2{
-  font-size:30px;
-  margin-bottom:20px;
-}
-
-.trust p{
-  color:var(--sub);
-  max-width:650px;
-  margin:auto;
-}
-
-/* FOOTER */
-.footer{
-  padding:60px 8%;
-  background:white;
-  border-top:1px solid #eee;
-  display:flex;
-  justify-content:space-between;
-  flex-wrap:wrap;
-  font-size:14px;
-  color:var(--sub);
-}
-
-.footer a{
-  text-decoration:none;
-  color:var(--sub);
-}
-
-.footer a:hover{color:var(--text);}
 
 @media(max-width:900px){
-  .hero h1{font-size:38px;}
-  .feature{flex-direction:column;}
+    .hero h1{font-size:42px;}
+    h2{font-size:34px;}
 }
 </style>
 </head>
 
 <body>
 
-<nav>
-  <div class="logo">
-    <img src="AppIcon.png">
-    <strong>SIGNO</strong>
-  </div>
-  <div>
-    <a href="#features">Features</a>
-    <a href="privacy.html">Privacy</a>
-  </div>
-</nav>
-
 <section class="hero">
-  <img src="AppIcon.png">
-  <h1>Break Communication Barriers</h1>
-  <p>Learn, translate, and practice sign language with structured lessons, real-time tools, and personalized progress tracking.</p>
+    <h1>Break Communication Barriers</h1>
+    <div class="sub">Learn, translate and master sign language with structured modules and real-time tools.</div>
 </section>
 
-<section id="features" class="section">
-  <div class="section-title">Designed for Seamless Learning</div>
-
-  <div class="feature">
-    <div class="feature-text">
-      <h3>Real-Time Translation</h3>
-      <p>Convert gestures and speech seamlessly, bridging communication between deaf and hearing users.</p>
-    </div>
-    <div class="mockup">
-      <div class="phone">
-        <div class="screen"></div>
-      </div>
-    </div>
-  </div>
-
-  <div class="feature">
-    <div class="mockup">
-      <div class="phone">
-        <div class="screen"></div>
-      </div>
-    </div>
-    <div class="feature-text">
-      <h3>Structured Learning Modules</h3>
-      <p>Step-by-step lessons with interactive practice sessions and detailed progress tracking.</p>
-    </div>
-  </div>
+<section class="image-section">
+    <h2>Learn. Practice. Improve.</h2>
+    <img src="ss1.jpg">
 </section>
 
-<section class="trust">
-  <h2>Secure by Design</h2>
-  <p>Authentication is encrypted. Passwords are securely hashed. User content is protected using trusted backend infrastructure.</p>
+<section class="image-section">
+    <h2>Structured Modules Designed for Beginners</h2>
+    <img src="ss2.jpg">
 </section>
 
-<div class="footer">
-  <div>
-    <strong>SIGNO</strong><br><br>
-    © 2026 SIGNO
-  </div>
-  <div>
-    <a href="privacy.html">Privacy Policy</a>
-  </div>
-</div>
+<section class="image-section">
+    <h2>Everything You Need in One Place</h2>
+    <img src="ss3.jpg">
+</section>
+
+<section class="image-section">
+    <h2>Learn with Voice Guidance</h2>
+    <img src="ss4.jpg">
+</section>
+
+<section class="image-section">
+    <h2>Build Your Personal Sign Dictionary</h2>
+    <img src="ss5.jpg">
+</section>
+
+<section class="image-section">
+    <h2>See It. Repeat It. Master It.</h2>
+    <img src="ss6.jpg">
+</section>
+
+<section>
+    <h2>Secure & Private by Design</h2>
+    <div class="sub">
+        Authentication is encrypted. Passwords are securely hashed.
+        User data is protected using trusted backend infrastructure.
+    </div>
+</section>
+
+<footer>
+    © 2026 SIGNO • <a href="privacy.html">Privacy Policy</a>
+</footer>
 
 </body>
 </html>
