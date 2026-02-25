@@ -5,14 +5,14 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>SIGNO – Learn & Translate Sign Language</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 
 <style>
 :root{
-    --primary:#7c3aed;
-    --accent:#a855f7;
-    --dark:#0f172a;
-    --light:#e2e8f0;
+    --accent:#6d28d9;
+    --text:#111827;
+    --sub:#6b7280;
+    --bg:#f9fafb;
 }
 
 *{
@@ -23,23 +23,18 @@
 
 body{
     font-family:'Inter',sans-serif;
-    background: radial-gradient(circle at 10% 10%, #1e1b4b, #0f172a 70%);
-    color:white;
-    scroll-behavior:smooth;
-    overflow-x:hidden;
+    background:var(--bg);
+    color:var(--text);
+    line-height:1.6;
 }
 
-/* NAV */
 nav{
-    position:fixed;
-    width:100%;
     display:flex;
     justify-content:space-between;
     align-items:center;
-    padding:20px 8%;
-    backdrop-filter: blur(12px);
-    background:rgba(15,23,42,0.6);
-    z-index:1000;
+    padding:24px 8%;
+    background:white;
+    border-bottom:1px solid #eee;
 }
 
 .logo{
@@ -49,91 +44,69 @@ nav{
 }
 
 .logo img{
-    width:36px;
-    border-radius:10px;
+    width:32px;
+    border-radius:8px;
 }
 
 .logo span{
-    font-weight:700;
-    font-size:18px;
+    font-weight:600;
+    font-size:16px;
 }
 
 nav a{
-    color:#cbd5e1;
     text-decoration:none;
-    margin-left:30px;
+    color:var(--sub);
+    margin-left:24px;
     font-size:14px;
-    transition:.3s;
 }
 
 nav a:hover{
-    color:white;
+    color:var(--text);
 }
 
 /* HERO */
 .hero{
-    padding:180px 20px 120px;
     text-align:center;
+    padding:120px 20px 80px;
+    max-width:900px;
+    margin:auto;
 }
 
 .hero img{
-    width:120px;
-    border-radius:28px;
-    box-shadow:0 30px 70px rgba(124,58,237,0.6);
+    width:100px;
+    border-radius:24px;
+    box-shadow:0 20px 50px rgba(0,0,0,0.1);
     margin-bottom:30px;
-    animation:float 4s ease-in-out infinite;
-}
-
-@keyframes float{
-    0%,100%{transform:translateY(0px);}
-    50%{transform:translateY(-12px);}
 }
 
 .hero h1{
-    font-size:56px;
+    font-size:48px;
+    font-weight:600;
     margin-bottom:20px;
-    background:linear-gradient(90deg,#fff,#c4b5fd);
-    -webkit-background-clip:text;
-    -webkit-text-fill-color:transparent;
 }
 
 .hero p{
+    font-size:18px;
+    color:var(--sub);
     max-width:600px;
     margin:auto;
-    color:#cbd5e1;
-    font-size:18px;
-}
-
-.button{
-    margin-top:40px;
-    display:inline-block;
-    padding:14px 36px;
-    border-radius:30px;
-    background:linear-gradient(90deg,var(--primary),var(--accent));
-    color:white;
-    font-weight:600;
-    text-decoration:none;
-    transition:.3s;
-}
-
-.button:hover{
-    transform:translateY(-4px);
-    box-shadow:0 15px 40px rgba(124,58,237,0.5);
 }
 
 /* SECTION */
 .section{
-    padding:120px 8%;
+    padding:100px 8%;
+    max-width:1200px;
+    margin:auto;
 }
 
-.section h2{
+.section-title{
     text-align:center;
-    font-size:36px;
+    font-size:32px;
+    font-weight:600;
     margin-bottom:80px;
 }
 
-/* FEATURE ROW */
-.feature-row{
+.feature{
     display:flex;
     align-items:center;
     justify-content:space-between;
@@ -148,13 +121,12 @@ nav a:hover{
 }
 
 .feature-text h3{
-    font-size:28px;
-    margin-bottom:20px;
+    font-size:26px;
+    margin-bottom:16px;
 }
 
 .feature-text p{
-    color:#cbd5e1;
-    line-height:1.6;
+    color:var(--sub);
 }
 
 .mockup{
@@ -167,32 +139,34 @@ nav a:hover{
 .phone{
     width:260px;
     height:520px;
-    background:#111827;
+    background:#111;
     border-radius:40px;
-    padding:15px;
-    box-shadow:0 25px 80px rgba(0,0,0,0.6);
+    padding:14px;
+    box-shadow:0 30px 60px rgba(0,0,0,0.15);
 }
 
 .screen{
     width:100%;
     height:100%;
     border-radius:30px;
-    background:linear-gradient(135deg,#1e1b4b,#7c3aed);
+    background:linear-gradient(135deg,#ede9fe,#ddd6fe);
 }
 
-/* TRUST SECTION */
+/* TRUST */
 .trust{
+    background:white;
+    padding:100px 20px;
     text-align:center;
-    padding:120px 20px;
-    background:linear-gradient(180deg,transparent,#111827);
+    border-top:1px solid #eee;
 }
 
 .trust h2{
-    margin-bottom:20px;
+    font-size:28px;
+    margin-bottom:16px;
 }
 
 .trust p{
-    color:#cbd5e1;
+    color:var(--sub);
     max-width:600px;
     margin:auto;
 }
@@ -200,24 +174,27 @@ nav a:hover{
 /* FOOTER */
 .footer{
     padding:60px 8%;
-    background:#0b1220;
+    background:white;
+    border-top:1px solid #eee;
     display:flex;
     justify-content:space-between;
     flex-wrap:wrap;
-    color:#94a3b8;
     font-size:14px;
+    color:var(--sub);
 }
 
 .footer a{
-    color:#a78bfa;
     text-decoration:none;
-    display:block;
-    margin-bottom:10px;
+    color:var(--sub);
+}
+
+.footer a:hover{
+    color:var(--text);
 }
 
 @media(max-width:900px){
-    .hero h1{font-size:38px;}
-    .feature-row{flex-direction:column;}
+    .hero h1{font-size:36px;}
+    .feature{flex-direction:column;}
 }
 </style>
 </head>
@@ -239,16 +216,15 @@ nav a:hover{
     <img src="AppIcon.png">
     <h1>Break Communication Barriers</h1>
     <p>Learn, translate, and practice sign language with structured lessons, real-time tools, and personalized progress tracking.</p>
-    <a href="#features" class="button">Explore SIGNO</a>
 </section>
 
 <section id="features" class="section">
-    <h2>Designed for Seamless Learning</h2>
+    <div class="section-title">Designed for Seamless Learning</div>
 
-    <div class="feature-row">
+    <div class="feature">
         <div class="feature-text">
             <h3>Real-Time Translation</h3>
-            <p>Convert gestures and speech instantly, bridging communication between deaf and hearing users.</p>
+            <p>Convert gestures and speech seamlessly, bridging communication between deaf and hearing users.</p>
         </div>
         <div class="mockup">
             <div class="phone">
@@ -257,7 +233,7 @@ nav a:hover{
         </div>
     </div>
 
-    <div class="feature-row">
+    <div class="feature">
         <div class="mockup">
             <div class="phone">
                 <div class="screen"></div>
@@ -265,10 +241,9 @@ nav a:hover{
         </div>
         <div class="feature-text">
             <h3>Structured Learning Modules</h3>
-            <p>Step-by-step lessons with progress tracking and interactive practice sessions.</p>
+            <p>Step-by-step lessons with interactive practice sessions and detailed progress tracking.</p>
         </div>
     </div>
-
 </section>
 
 <section class="trust">
@@ -281,7 +256,6 @@ nav a:hover{
         <strong>SIGNO</strong><br><br>
         © 2026 SIGNO
     </div>
-
     <div>
         <a href="privacy.html">Privacy Policy</a>
     </div>
