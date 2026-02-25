@@ -10,10 +10,13 @@
 <style>
 :root{
     --accent:#7c3aed;
-    --soft:#f5f3ff;
     --text:#111827;
     --sub:#6b7280;
     --dark:#0f172a;
+}
+
+html{
+    scroll-behavior:smooth;
 }
 
 body{
@@ -21,10 +24,24 @@ body{
     font-family:'Inter',sans-serif;
     color:var(--text);
     background:white;
+    overflow-x:hidden;
+}
+
+/* Soft blurred gradient blobs */
+body::before{
+    content:"";
+    position:fixed;
+    width:600px;
+    height:600px;
+    background:radial-gradient(circle at center, rgba(124,58,237,0.18), transparent 70%);
+    top:-200px;
+    right:-200px;
+    z-index:-1;
+    filter:blur(40px);
 }
 
 section{
-    padding:120px 8%;
+    padding:140px 8%;
 }
 
 .container{
@@ -32,41 +49,69 @@ section{
     margin:auto;
 }
 
+/* NAV */
+nav{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:20px 8%;
+    background:rgba(255,255,255,0.85);
+    backdrop-filter:blur(20px);
+    position:sticky;
+    top:0;
+    z-index:1000;
+    border-bottom:1px solid #f1f1f1;
+}
+
+nav img{
+    width:32px;
+    border-radius:8px;
+}
+
+nav a{
+    text-decoration:none;
+    color:var(--sub);
+    margin-left:28px;
+    font-size:14px;
+    transition:.3s;
+}
+
+nav a:hover{
+    color:var(--text);
+}
+
+/* HERO */
 .hero{
     display:flex;
     align-items:center;
     justify-content:space-between;
-    gap:80px;
-    padding:160px 8% 120px;
-}
-
-.hero-text{
-    flex:1;
+    gap:100px;
+    padding:180px 8% 140px;
 }
 
 .hero h1{
-    font-size:64px;
+    font-size:68px;
     font-weight:700;
-    line-height:1.1;
+    line-height:1.05;
 }
 
 .hero p{
     font-size:20px;
     color:var(--sub);
-    margin-top:24px;
-    max-width:500px;
-}
-
-.hero-logo{
-    flex:1;
-    display:flex;
-    justify-content:center;
+    margin-top:28px;
+    max-width:520px;
 }
 
 .hero-logo img{
-    width:240px;
-    border-radius:50px;
-    box-shadow:0 40px 80px rgba(124,58,237,0.3);
+    width:360px; /* Increased for balance */
+    border-radius:60px;
+    box-shadow:0 60px 120px rgba(124,58,237,0.35);
+    animation:float 5s ease-in-out infinite;
+}
+
+@keyframes float{
+    0%,100%{transform:translateY(0);}
+    50%{transform:translateY(-14px);}
 }
 
 /* Feature Layout */
@@ -75,18 +120,20 @@ section{
     display:flex;
     align-items:center;
     justify-content:space-between;
-    gap:80px;
+    gap:100px;
     flex-wrap:wrap;
+    opacity:0;
+    transform:translateY(40px);
+    transition:all .8s ease;
 }
 
-.feature-text{
-    flex:1;
-    min-width:280px;
+.feature.show{
+    opacity:1;
+    transform:translateY(0);
 }
 
 .feature-text h2{
-    font-size:42px;
-    font-weight:700;
+    font-size:44px;
     margin-bottom:20px;
 }
 
@@ -96,32 +143,58 @@ section{
     line-height:1.7;
 }
 
-.feature-image{
-    flex:1;
-    display:flex;
-    justify-content:center;
-}
-
 .feature-image img{
-    width:420px;
+    width:440px;
     max-width:100%;
-    filter: drop-shadow(0 40px 60px rgba(0,0,0,0.15));
+    filter:drop-shadow(0 50px 70px rgba(0,0,0,0.18));
+    transition:transform .4s ease;
 }
 
-/* Alternating backgrounds */
+.feature-image img:hover{
+    transform:scale(1.03);
+}
 
+/* Blurred Section Background */
 .soft{
-    background:var(--soft);
+    position:relative;
 }
 
+.soft::before{
+    content:"";
+    position:absolute;
+    width:500px;
+    height:500px;
+    background:radial-gradient(circle, rgba(124,58,237,0.15), transparent 70%);
+    top:50%;
+    left:-200px;
+    transform:translateY(-50%);
+    filter:blur(60px);
+    z-index:-1;
+}
+
+/* Dark Highlight */
 .dark{
-    background:var(--dark);
+    background:linear-gradient(135deg,#0f172a,#1e1b4b);
     color:white;
     text-align:center;
+    position:relative;
+}
+
+.dark::before{
+    content:"";
+    position:absolute;
+    width:600px;
+    height:600px;
+    background:radial-gradient(circle, rgba(124,58,237,0.3), transparent 70%);
+    top:-200px;
+    right:-200px;
+    filter:blur(100px);
+    z-index:0;
 }
 
 .dark h2{
-    font-size:48px;
+    font-size:52px;
+    position:relative;
 }
 
 .dark p{
@@ -129,12 +202,12 @@ section{
     max-width:700px;
     margin:auto;
     margin-top:20px;
+    position:relative;
 }
 
 /* Footer */
-
 footer{
-    padding:60px 8%;
+    padding:70px 8%;
     border-top:1px solid #eee;
     text-align:center;
     color:var(--sub);
@@ -158,37 +231,31 @@ footer a:hover{
         flex-direction:column;
     }
     .hero h1{
-        font-size:40px;
+        font-size:42px;
+    }
+    .hero-logo img{
+        width:260px;
     }
 }
 </style>
 </head>
 
 <body>
-<nav style="
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    padding:20px 8%;
-    border-bottom:1px solid #eee;
-    background:white;
-    position:sticky;
-    top:0;
-    z-index:1000;
-">
+
+<nav>
     <div style="display:flex;align-items:center;gap:10px;">
-        <img src="AppIcon.png" style="width:28px;border-radius:6px;">
+        <img src="AppIcon.png">
         <strong>SIGNO</strong>
     </div>
-
     <div>
-        <a href="#features" style="margin-right:24px;text-decoration:none;color:#6b7280;">Features</a>
-        <a href="privacy.html" style="text-decoration:none;color:#6b7280;">Privacy</a>
+        <a href="#features">Features</a>
+        <a href="privacy.html">Privacy</a>
     </div>
 </nav>
+
 <!-- HERO -->
 <section class="hero">
-    <div class="hero-text">
+    <div>
         <h1>Break Communication Barriers</h1>
         <p>Learn, translate, and master sign language with structured modules, real-time tools, and intelligent progress tracking.</p>
     </div>
@@ -197,7 +264,9 @@ footer a:hover{
     </div>
 </section>
 
-<!-- Feature 1 -->
+<!-- FEATURES -->
+<div id="features">
+
 <section class="soft">
 <div class="container feature">
     <div class="feature-image">
@@ -205,17 +274,16 @@ footer a:hover{
     </div>
     <div class="feature-text">
         <h2>Learn. Practice. Improve.</h2>
-        <p>Interactive practice sessions designed to help you build confidence through repetition and structured learning paths.</p>
+        <p>Interactive practice sessions designed to build confidence through structured repetition.</p>
     </div>
 </div>
 </section>
 
-<!-- Feature 2 -->
 <section>
 <div class="container feature">
     <div class="feature-text">
         <h2>Structured Modules for Beginners</h2>
-        <p>Organized categories and progressive lessons ensure systematic learning from fundamentals to advanced signs.</p>
+        <p>Organized categories ensure systematic learning from fundamentals to advanced signs.</p>
     </div>
     <div class="feature-image">
         <img src="ss2.jpg">
@@ -223,13 +291,11 @@ footer a:hover{
 </div>
 </section>
 
-<!-- Dark Highlight -->
 <section class="dark">
     <h2>Everything You Need in One Place</h2>
     <p>Translation tools, progress tracking, voice guidance, and custom sign management — seamlessly integrated.</p>
 </section>
 
-<!-- Feature 3 -->
 <section class="soft">
 <div class="container feature">
     <div class="feature-image">
@@ -237,12 +303,11 @@ footer a:hover{
     </div>
     <div class="feature-text">
         <h2>Voice Guidance & Smart Search</h2>
-        <p>Learn with audio cues and instantly search signs to accelerate understanding and retention.</p>
+        <p>Learn with audio cues and instantly search signs to accelerate understanding.</p>
     </div>
 </div>
 </section>
 
-<!-- Feature 4 -->
 <section>
 <div class="container feature">
     <div class="feature-text">
@@ -255,19 +320,26 @@ footer a:hover{
 </div>
 </section>
 
-<!-- Privacy -->
-<section class="soft">
-<div class="container" style="text-align:center;">
-    <h2>Secure & Private by Design</h2>
-    <p style="max-width:700px;margin:auto;margin-top:20px;color:#6b7280;">
-        Authentication is encrypted. Passwords are securely hashed. User content and progress data are protected using trusted backend infrastructure.
-    </p>
 </div>
-</section>
 
 <footer>
     © 2026 SIGNO • <a href="privacy.html">Privacy Policy</a>
 </footer>
+
+<script>
+/* Scroll reveal animation */
+const elements = document.querySelectorAll('.feature');
+
+const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+        if(entry.isIntersecting){
+            entry.target.classList.add('show');
+        }
+    });
+},{ threshold: 0.2 });
+
+elements.forEach(el => observer.observe(el));
+</script>
 
 </body>
 </html>
