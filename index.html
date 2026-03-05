@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -22,7 +23,7 @@ background:#f5f5f7;
 overflow-x:hidden;
 }
 
-/* NAVBAR */
+/* NAV */
 
 nav{
 display:flex;
@@ -64,6 +65,7 @@ gap:120px;
 padding:160px 8% 120px;
 max-width:1300px;
 margin:auto;
+position:relative;
 }
 
 .hero h1{
@@ -80,6 +82,33 @@ margin-top:20px;
 max-width:520px;
 }
 
+/* APP STORE BUTTON */
+
+.cta-wrapper{
+margin-top:34px;
+}
+
+.cta{
+display:inline-block;
+padding:14px 28px;
+background:#0071e3;
+color:white;
+border-radius:24px;
+font-weight:500;
+font-size:16px;
+text-decoration:none;
+cursor:default;
+box-shadow:0 10px 30px rgba(0,113,227,0.35);
+transition:.25s;
+}
+
+.cta:hover{
+transform:translateY(-2px);
+box-shadow:0 14px 40px rgba(0,113,227,0.45);
+}
+
+/* HERO ICON */
+
 .hero-logo{
 display:flex;
 justify-content:center;
@@ -89,6 +118,20 @@ justify-content:center;
 width:340px;
 border-radius:56px;
 box-shadow:0 40px 120px rgba(0,0,0,0.15);
+}
+
+/* HERO GLOW */
+
+.hero::before{
+content:"";
+position:absolute;
+width:700px;
+height:700px;
+background:radial-gradient(circle,#7c3aed33,transparent 70%);
+top:-250px;
+right:-200px;
+filter:blur(120px);
+z-index:-1;
 }
 
 /* SECTION */
@@ -137,6 +180,11 @@ width:420px;
 max-width:100%;
 border-radius:28px;
 box-shadow:0 30px 70px rgba(0,0,0,0.12);
+transition:.35s;
+}
+
+.feature img:hover{
+transform:scale(1.04);
 }
 
 /* LIGHT SECTION */
@@ -261,7 +309,6 @@ width:240px;
 
 </nav>
 
-
 <!-- HERO -->
 
 <section class="hero">
@@ -275,6 +322,10 @@ Learn sign language through structured modules,
 real-time translation tools and intelligent progress tracking.
 </p>
 
+<div class="cta-wrapper">
+<a class="cta">Coming Soon on the App Store</a>
+</div>
+
 </div>
 
 <div class="hero-logo">
@@ -282,7 +333,6 @@ real-time translation tools and intelligent progress tracking.
 </div>
 
 </section>
-
 
 <!-- FEATURES -->
 
@@ -307,7 +357,6 @@ confidence through repetition and structured learning.
 
 </div>
 
-
 <div class="feature">
 
 <div>
@@ -329,7 +378,6 @@ essential sign language skills.
 
 </section>
 
-
 <section class="highlight">
 
 <h2>Everything You Need in One Place</h2>
@@ -340,7 +388,6 @@ and progress tracking — seamlessly integrated.
 </p>
 
 </section>
-
 
 <section>
 
@@ -363,7 +410,6 @@ to accelerate understanding.
 
 </div>
 
-
 <div class="feature">
 
 <div>
@@ -385,6 +431,7 @@ to build your own personalized sign library.
 
 </section>
 
+<!-- CONTACT -->
 
 <section id="contact" class="contact">
 
@@ -401,7 +448,6 @@ signoiosapp@gmail.com
 
 </section>
 
-
 <footer>
 
 © 2026 SIGNO
@@ -412,7 +458,6 @@ signoiosapp@gmail.com
 <a href="terms.html">Terms of Service</a>
 
 </footer>
-
 
 <script>
 
