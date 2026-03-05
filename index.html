@@ -3,11 +3,12 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>SIGNO – Learn Sign Language</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-
 <style>
+
+/* GLOBAL */
 
 html{
 scroll-behavior:smooth;
@@ -15,24 +16,24 @@ scroll-behavior:smooth;
 
 body{
 margin:0;
-font-family:'Inter',sans-serif;
-color:#111827;
-background:#ffffff;
+font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+color:#1d1d1f;
+background:#f5f5f7;
 overflow-x:hidden;
 }
 
-/* NAV */
+/* NAVBAR */
 
 nav{
 display:flex;
 justify-content:space-between;
 align-items:center;
-padding:20px 8%;
+padding:18px 8%;
 position:sticky;
 top:0;
-background:rgba(255,255,255,0.85);
-backdrop-filter:blur(12px);
-border-bottom:1px solid #eee;
+background:rgba(255,255,255,0.8);
+backdrop-filter:blur(20px);
+border-bottom:1px solid #e5e5e7;
 z-index:1000;
 }
 
@@ -43,90 +44,75 @@ border-radius:8px;
 
 nav a{
 text-decoration:none;
-margin-left:28px;
-color:#6b7280;
+margin-left:26px;
+color:#6e6e73;
 font-size:14px;
-transition:.3s;
+transition:.2s;
 }
 
 nav a:hover{
-color:#111827;
+color:#0071e3;
 }
 
 /* HERO */
 
 .hero{
 display:grid;
-grid-template-columns:1.1fr 1fr;
+grid-template-columns:1.2fr 1fr;
 align-items:center;
 gap:120px;
-padding:180px 8% 140px;
+padding:160px 8% 120px;
+max-width:1300px;
+margin:auto;
 }
 
 .hero h1{
-font-size:72px;
+font-size:64px;
 font-weight:700;
 line-height:1.05;
+letter-spacing:-1px;
 }
 
 .hero p{
 font-size:20px;
-color:#6b7280;
-margin-top:24px;
+color:#6e6e73;
+margin-top:20px;
 max-width:520px;
 }
 
 .hero-logo{
 display:flex;
 justify-content:center;
-align-items:center;
 }
 
 .hero-logo img{
-width:380px;
-border-radius:60px;
-box-shadow:0 70px 140px rgba(124,58,237,0.35);
-animation:float 6s ease-in-out infinite;
+width:340px;
+border-radius:56px;
+box-shadow:0 40px 120px rgba(0,0,0,0.15);
 }
 
-@keyframes float{
-0%,100%{transform:translateY(0);}
-50%{transform:translateY(-16px);}
-}
-
-/* GRADIENT GLOW */
-
-.hero::before{
-content:"";
-position:absolute;
-width:700px;
-height:700px;
-background:radial-gradient(circle,#a78bfa33,transparent 70%);
-top:-250px;
-right:-250px;
-filter:blur(100px);
-z-index:-1;
-}
-
-/* FEATURES */
+/* SECTION */
 
 section{
-padding:160px 8%;
+padding:140px 8%;
 }
 
 .container{
-max-width:1200px;
+max-width:1100px;
 margin:auto;
 }
+
+/* FEATURE */
 
 .feature{
 display:grid;
 grid-template-columns:1fr 1fr;
+gap:100px;
 align-items:center;
-gap:120px;
+margin-bottom:120px;
 opacity:0;
 transform:translateY(40px);
-transition:all .9s ease;
+transition:.9s ease;
 }
 
 .feature.show{
@@ -135,51 +121,50 @@ transform:translateY(0);
 }
 
 .feature h2{
-font-size:44px;
-margin-bottom:20px;
+font-size:42px;
+margin-bottom:16px;
+letter-spacing:-0.5px;
 }
 
 .feature p{
 font-size:18px;
-color:#6b7280;
+color:#6e6e73;
 line-height:1.7;
 }
 
 .feature img{
-width:460px;
+width:420px;
 max-width:100%;
-filter:drop-shadow(0 50px 70px rgba(0,0,0,0.18));
-transition:.4s;
+border-radius:28px;
+box-shadow:0 30px 70px rgba(0,0,0,0.12);
 }
 
-.feature img:hover{
-transform:scale(1.03);
-}
-
-/* ALT BACKGROUND */
+/* LIGHT SECTION */
 
 .soft{
-background:#fafafa;
+background:white;
+border-top:1px solid #e5e5e7;
+border-bottom:1px solid #e5e5e7;
 }
 
-/* DARK SECTION */
+/* HIGHLIGHT */
 
 .highlight{
-background:linear-gradient(135deg,#0f172a,#1e1b4b);
+background:linear-gradient(135deg,#1d1d1f,#3f3f46);
 color:white;
 text-align:center;
-position:relative;
+padding:160px 8%;
 }
 
 .highlight h2{
-font-size:56px;
+font-size:54px;
 }
 
 .highlight p{
-color:#cbd5e1;
-max-width:720px;
+max-width:700px;
 margin:auto;
 margin-top:20px;
+color:#d1d5db;
 }
 
 /* CONTACT */
@@ -189,21 +174,21 @@ text-align:center;
 }
 
 .contact h2{
-font-size:44px;
+font-size:40px;
 }
 
 .contact p{
-color:#6b7280;
-margin-top:16px;
+color:#6e6e73;
+margin-top:14px;
 }
 
 .email{
 display:inline-block;
 margin-top:24px;
-padding:14px 28px;
-background:#7c3aed;
+padding:14px 30px;
+background:#0071e3;
 color:white;
-border-radius:30px;
+border-radius:24px;
 text-decoration:none;
 font-weight:500;
 }
@@ -213,18 +198,19 @@ font-weight:500;
 footer{
 padding:80px 8%;
 text-align:center;
-border-top:1px solid #eee;
-color:#6b7280;
+border-top:1px solid #e5e5e7;
+color:#6e6e73;
+background:white;
 }
 
 footer a{
 text-decoration:none;
-color:#6b7280;
-margin:0 10px;
+color:#6e6e73;
+margin:0 12px;
 }
 
 footer a:hover{
-color:#111827;
+color:#0071e3;
 }
 
 /* MOBILE */
@@ -238,21 +224,23 @@ gap:80px;
 }
 
 .hero h1{
-font-size:44px;
-}
-
-.hero-logo img{
-width:260px;
+font-size:42px;
 }
 
 .feature{
 grid-template-columns:1fr;
-gap:80px;
+gap:60px;
+text-align:center;
+}
+
+.hero-logo img{
+width:240px;
 }
 
 }
 
 </style>
+
 </head>
 
 <body>
@@ -273,11 +261,13 @@ gap:80px;
 
 </nav>
 
+
 <!-- HERO -->
 
 <section class="hero">
 
 <div>
+
 <h1>Break Communication Barriers</h1>
 
 <p>
@@ -293,19 +283,19 @@ real-time translation tools and intelligent progress tracking.
 
 </section>
 
+
 <!-- FEATURES -->
 
-<div id="features">
+<section id="features">
 
-<section class="soft">
+<div class="container">
 
-<div class="container feature">
+<div class="feature">
 
-<div>
 <img src="ss1.jpg">
-</div>
 
 <div>
+
 <h2>Learn. Practice. Improve.</h2>
 
 <p>
@@ -317,13 +307,11 @@ confidence through repetition and structured learning.
 
 </div>
 
-</section>
 
-<section>
-
-<div class="container feature">
+<div class="feature">
 
 <div>
+
 <h2>Structured Learning Modules</h2>
 
 <p>
@@ -333,13 +321,14 @@ essential sign language skills.
 
 </div>
 
-<div>
 <img src="ss2.jpg">
+
 </div>
 
 </div>
 
 </section>
+
 
 <section class="highlight">
 
@@ -352,15 +341,17 @@ and progress tracking — seamlessly integrated.
 
 </section>
 
-<section class="soft">
 
-<div class="container feature">
+<section>
 
-<div>
+<div class="container">
+
+<div class="feature">
+
 <img src="ss4.jpg">
-</div>
 
 <div>
+
 <h2>Voice Guidance & Smart Search</h2>
 
 <p>
@@ -372,13 +363,11 @@ to accelerate understanding.
 
 </div>
 
-</section>
 
-<section>
-
-<div class="container feature">
+<div class="feature">
 
 <div>
+
 <h2>Build Your Personal Dictionary</h2>
 
 <p>
@@ -388,17 +377,14 @@ to build your own personalized sign library.
 
 </div>
 
-<div>
 <img src="ss5.jpg">
+
 </div>
 
 </div>
 
 </section>
 
-</div>
-
-<!-- CONTACT -->
 
 <section id="contact" class="contact">
 
@@ -415,15 +401,18 @@ signoiosapp@gmail.com
 
 </section>
 
+
 <footer>
 
-© 2026 SIGNO  
+© 2026 SIGNO
+
 <br><br>
 
 <a href="privacy.html">Privacy Policy</a>
 <a href="terms.html">Terms of Service</a>
 
 </footer>
+
 
 <script>
 
